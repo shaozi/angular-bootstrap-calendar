@@ -451,6 +451,12 @@ module.exports = startOfDay
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["getWeekViewEventOffset"] = getWeekViewEventOffset;
+/* harmony export (immutable) */ __webpack_exports__["getWeekViewHeader"] = getWeekViewHeader;
+/* harmony export (immutable) */ __webpack_exports__["getWeekView"] = getWeekView;
+/* harmony export (immutable) */ __webpack_exports__["getMonthView"] = getMonthView;
+/* harmony export (immutable) */ __webpack_exports__["getDayView"] = getDayView;
+/* harmony export (immutable) */ __webpack_exports__["getDayViewHourGrid"] = getDayViewHourGrid;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_date_fns_end_of_day__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_date_fns_end_of_day___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_date_fns_end_of_day__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_add_minutes__ = __webpack_require__(12);
@@ -489,12 +495,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_date_fns_difference_in_minutes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_date_fns_difference_in_minutes__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_date_fns_add_hours__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_date_fns_add_hours___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_date_fns_add_hours__);
-/* harmony export (immutable) */ __webpack_exports__["getWeekViewEventOffset"] = getWeekViewEventOffset;
-/* harmony export (immutable) */ __webpack_exports__["getWeekViewHeader"] = getWeekViewHeader;
-/* harmony export (immutable) */ __webpack_exports__["getWeekView"] = getWeekView;
-/* harmony export (immutable) */ __webpack_exports__["getMonthView"] = getMonthView;
-/* harmony export (immutable) */ __webpack_exports__["getDayView"] = getDayView;
-/* harmony export (immutable) */ __webpack_exports__["getDayViewHourGrid"] = getDayViewHourGrid;
 
 
 
@@ -2840,7 +2840,7 @@ angular
 
     function handleMouseEvent(callbackName) {
       return function(event) {
-        if (callbackName) {
+        if (callbackName && event.button !== 2) {
           $parse(callbackName)($scope);
           $scope.$apply();
         }
@@ -3592,7 +3592,8 @@ angular
     }
 
     function monthViewTooltip(event) {
-      return calendarDateFilter(event.startsAt, 'time', true) + ' - ' + event.title;
+      //return calendarDateFilter(event.startsAt, 'time', true) + ' - ' + event.title;
+      return event.title;
     }
 
     function weekView(event) {

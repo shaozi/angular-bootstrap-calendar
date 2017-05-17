@@ -15,7 +15,8 @@ angular
     }
 
     function monthViewTooltip(event) {
-      return calendarDateFilter(event.startsAt, 'time', true) + ' - ' + event.title;
+      //return calendarDateFilter(event.startsAt, 'time', true) + ' - ' + event.title;
+      return event.title;
     }
 
     function weekView(event) {
